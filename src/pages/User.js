@@ -17,7 +17,7 @@ const User = () => {
 
     useEffect(() => {
         //fetch Userdata
-        axios.get(`http://192.168.0.103:5670/api/v1/users/${id}`).then(res => {
+        axios.get(`https://eat-sleep-nintendo-repeat.eu/api/v1/users/${id}`).then(res => {
             if (res.status > 399) throw Error("bad response code")
             SetisPending(false)
             return SetUserData(res.data)
@@ -136,7 +136,7 @@ const UserWarnsCard = ({data}) => {
 
     useEffect(() => {
         //fetch Warnsdata
-        axios.get(`http://192.168.0.103:5670/api/v1/warns?id=${data.id}`).then(res => {
+        axios.get(`https://eat-sleep-nintendo-repeat.eu/api/v1/warns?id=${data.id}`).then(res => {
             if (res.status > 399) throw Error("bad response code")
             console.log(res.data)
             SetisWarnsPending(false)
@@ -175,7 +175,7 @@ const WarnListItem = ({warndata}) => {
     const [ExecuterPending, SetExecuterPending] = useState(true)
 
     useEffect(() => {
-        axios.get(`http://192.168.0.103:5670/api/v1/users/${warndata.executor}`).then(res => {
+        axios.get(`https://eat-sleep-nintendo-repeat.eu/api/v1/users/${warndata.executor}`).then(res => {
             SetExecuterData(res.data)
             SetExecuterPending(false)
             }).catch((e => {

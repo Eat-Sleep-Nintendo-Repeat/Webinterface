@@ -41,7 +41,7 @@ const Header = () => {
 
     useEffect(() => {
         //fetch Userdata
-        axios.get("http://192.168.0.103:5670/api/v1/users/@me").then(res => {
+        axios.get("https://eat-sleep-nintendo-repeat.eu/api/v1/users/@me").then(res => {
             SetUser(res.data)
         })
         .catch(e => console.error(e))
