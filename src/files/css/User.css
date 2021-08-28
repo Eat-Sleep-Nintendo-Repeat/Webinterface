@@ -1,0 +1,220 @@
+/* Main Card */
+.UserPage .box {
+    margin: 10px;
+    padding: 7px;
+    background-color: #1c1f22;
+    border-radius: 6px;
+}
+
+.UserPage .UserMainCard .name { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.UserPage .UserMainCard .name p { 
+    margin: 0px 5px;
+    padding: 0 3px;
+    background-color: var(--primary);
+    border-radius: 3px;
+}
+
+.UserPage .UserMainCard .name img{ 
+    width: 30px;
+}
+
+.UserPage .UserMainCard .pb {
+    text-align: center;
+}
+
+.UserPage .UserMainCard .pb img{
+    width: 200px;
+    border-radius: 50%;
+    background-color: var(--primary);
+}
+
+/* Rankcard */
+
+
+.UserPage .UserRankCard h1 {
+    text-align: center;
+}
+
+.UserPage .UserRankCard h2 {
+    text-align: center;
+}
+
+.UserPage .UserRankCard .rank h2{
+    margin-left: 10px;
+}
+
+.UserPage .UserRankCard .xp, .UserPage .UserRankCard .rank {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.UserPage .UserRankCard .xp h1, .UserPage .UserRankCard .xp h2{
+    font-size: 20px;
+    margin: 4px;
+}
+
+.UserPage .UserRankCard .xpprogress {
+    width: 60vw;
+    background-color: var(--white);
+    border-radius: 4px;
+    margin: 10px 0px;
+}
+
+.UserPage .UserRankCard .xpprogress .bar {
+  height: 10px;
+  background-color: var(--primary);
+  border-radius: 4px;
+}
+
+/* coin card */
+.UserPage .UserCoinCard h1 {
+    text-align: center;
+    justify-content: center;
+}
+
+.UserPage .UserCoinCard .flex {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.UserPage .UserCoinCard img {
+    width: 30px;
+}
+
+.UserPage .UserCoinCard hr {
+    color: var(--white);
+}
+
+.UserPage .UserCoinCard .purchases{ 
+/* this is the ul */
+    list-style: none;
+}
+
+.UserPage .UserCoinCard .purchase {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.UserPage .UserCoinCard .purchase .value {
+    display: flex;
+}
+
+.UserPage .UserCoinCard .purchase .value h4 {
+    color: var(--success)
+}
+
+
+.UserPage .UserCoinCard .purchase h4 {
+    /* cuts of things that are to long */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 30vw;
+}
+
+.UserPage .UserCoinCard .purchase .value .negative {
+    color: var(--error)
+}
+
+.UserPage .UserCoinCard .purchase *{
+    justify-content: center;
+    text-align: center;
+}
+
+/* Warn Card */
+
+.UserPage .UserWarnsCard .nowarns {
+    display: flex;
+    align-items: center;
+}
+
+.UserPage .UserWarnsCard .nowarns img {
+    width: 20px;
+    margin: 0 4px;
+}
+
+.UserPage .UserWarnsCard .warns {
+    list-style: none;
+    border: var(--error) solid 2px;
+    margin: 10px;
+    border-radius: 6px;
+    padding: 0 6px;
+}
+
+.UserPage .UserWarnsCard .warns .warn .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+
+.UserPage .UserWarnsCard .warns .warn .head h3 {
+    /* cuts of things that are to long */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 30vw;
+}
+
+.UserPage .UserWarnsCard .warns .warn .executor {
+    display: flex;
+}
+
+.UserPage .UserWarnsCard .warns .warn .executor .thicc {
+ margin-right: 8px;
+ font-weight: bold;
+}
+
+.UserPage .Removalnotice {
+    background-color: var(--error);
+    text-align: center;
+}
+
+
+/* desktop styles */
+@media screen and (min-width: 1300px){
+    .UserPage {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .UserPage .UserMainCard {
+        grid-row: 2/4;
+    }
+
+    .UserPage .UserMainCard .pb img {
+        width: 20vw;
+    }
+
+    .UserPage .UserMainCard .name {
+        font-size: 1.5vw;
+    }
+
+    .UserPage .UserRankCard .xp .xpprogress {
+        width: 80%;
+    }
+
+    .UserPage .UserRankCard .rank {
+        display: block;
+    }
+
+    .UserPage .UserCoinCard {
+        grid-column: 2/3;
+    }
+
+    .UserPage .UserWarnsCard {
+        grid-column: 1/3;
+    } 
+
+    .UserPage .Removalnotice {
+        grid-column: 1/3;
+    }
+}

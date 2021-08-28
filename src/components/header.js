@@ -1,9 +1,11 @@
 import {Link} from "react-router-dom"
 import logo from "../files/images/logo.png";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { FaDiscord } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import axios from "../api"
 import Boostericon from "../files/images/nitro.png"
+import '../files/css/Header.css';
 
 const HeaderUserButton = ({handeMenuClick, User}) => {
 
@@ -22,6 +24,12 @@ const HeaderUserButton = ({handeMenuClick, User}) => {
     );
 }
 
+const HeaderLoginButton = () => {
+    return ( <div className="headerLoginButton">
+        <a href="http://192.168.0.103:5670/api/v1/auth/discord"><FaDiscord size="15px" className="discordicon"/> Login</a>
+    </div> );
+}
+
 const Header = () => {
     const [menuExpandet, setMenuExpandet] = useState(false)
 
@@ -33,7 +41,7 @@ const Header = () => {
 
     useEffect(() => {
         //fetch Userdata
-        axios.get("http://localhost:5670/api/v1/users/@me").then(res => {
+        axios.get("http://192.168.0.103:5670/api/v1/users/@me").then(res => {
             SetUser(res.data)
         })
         .catch(e => console.error(e))
@@ -54,6 +62,7 @@ const Header = () => {
                 <li><Link onClick={handeMenuClick} to="/shop">Shop</Link></li>
                 <li><Link onClick={handeMenuClick} to="/turnements">Turniere</Link></li>
                 {User && <li><HeaderUserButton handeMenuClick={handeMenuClick} User={User}/></li>}
+                {!User && <li><HeaderLoginButton /></li>}
             </ul>
                 <GiHamburgerMenu onClick={handeMenuClick} size="30px" className="burger"/>
 

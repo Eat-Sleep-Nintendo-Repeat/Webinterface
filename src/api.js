@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from 'js-cookie';
 
-const baseUrl = "http://localhost:5670/api/v1"
+const baseUrl = "http://192.168.0.103:5670/api/v1"
 
 //request interceptor to add the auth token header to requests
 axios.interceptors.request.use(
@@ -40,7 +40,10 @@ axios.interceptors.response.use(
               return axios(originalRequest);
             }
           }).catch(e => {
-            window.location = `${baseUrl}/auth/discord`
+            document.cookie = `redirect=${window.location.href}`;
+            setTimeout(() => {
+              window.location = `${baseUrl}/auth/discord`
+            }, 1000);
           });
       }
       else if (
@@ -48,10 +51,10 @@ axios.interceptors.response.use(
         error.response.status === 401 &&
         !originalRequest.retry
       ) {
-        window.location = `${baseUrl}/auth/discord`
-      }
-      else if (originalRequest.retry){
-        window.location = `${baseUrl}/auth/discord`
+        document.cookie = `redirect=${window.location.href}`;
+        setTimeout(() => {
+          window.location = `${baseUrl}/auth/discord`
+        }, 1000);
       }
       return Promise.reject(error);
     }
