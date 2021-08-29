@@ -3,7 +3,7 @@ import logo from "../files/images/logo.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaDiscord } from "react-icons/fa";
 import { useEffect, useState } from "react";
-import axios from "../api"
+import {axios, baseUrl} from "../api"
 import Boostericon from "../files/images/nitro.png"
 import '../files/css/Header.css';
 
@@ -26,7 +26,7 @@ const HeaderUserButton = ({handeMenuClick, User}) => {
 
 const HeaderLoginButton = () => {
     return ( <div className="headerLoginButton">
-        <a href="http://192.168.0.103:5670/api/v1/auth/discord"><FaDiscord size="15px" className="discordicon"/> Login</a>
+        <a href={`${baseUrl}/auth/discord`}><FaDiscord size="15px" className="discordicon"/> Login</a>
     </div> );
 }
 
@@ -41,7 +41,7 @@ const Header = () => {
 
     useEffect(() => {
         //fetch Userdata
-        axios.get("https://eat-sleep-nintendo-repeat.eu/api/v1/users/@me").then(res => {
+        axios.get(`${baseUrl}/users/@me`).then(res => {
             SetUser(res.data)
         })
         .catch(e => console.error(e))

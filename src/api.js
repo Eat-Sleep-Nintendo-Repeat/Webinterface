@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from 'js-cookie';
 
-const baseUrl = "https://eat-sleep-nintendo-repeat.eu/api/v1"
+const baseUrl = "http://192.168.0.103:5670/api/v1"
 
 //request interceptor to add the auth token header to requests
 axios.interceptors.request.use(
@@ -43,7 +43,7 @@ axios.interceptors.response.use(
             document.cookie = `redirect=${window.location.href}`;
             setTimeout(() => {
               window.location = `${baseUrl}/auth/discord`
-            }, 1000);
+            }, 60000);
           });
       }
       else if (
@@ -52,12 +52,10 @@ axios.interceptors.response.use(
         !originalRequest.retry
       ) {
         document.cookie = `redirect=${window.location.href}`;
-        setTimeout(() => {
           window.location = `${baseUrl}/auth/discord`
-        }, 1000);
       }
       return Promise.reject(error);
     }
   );
 
-  export default axios;
+export { axios, baseUrl }
