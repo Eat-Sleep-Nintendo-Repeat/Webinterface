@@ -43,7 +43,7 @@ axios.interceptors.response.use(
             document.cookie = `redirect=${window.location.href}`;
             setTimeout(() => {
               window.location = `${baseUrl}/auth/discord`
-            }, 60000);
+            }, 500);
           });
       }
       else if (
