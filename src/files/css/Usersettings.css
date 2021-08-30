@@ -3,6 +3,10 @@
     font-size: 40px;
 }
 
+.Usersettings .ApiTokensPanel a {
+    color: var(--primary);
+}
+
 .Usersettings .ApiTokensPanel ul {
     list-style: none;
 }
@@ -14,7 +18,7 @@
 .Usersettings .ApiTokensPanel .keyremovebutton {
     background-color: var(--error);
     border-radius: 6px;
-    margin: 20px 0;
+    margin: 20px 5px;
     padding: 5px 20px;
     border-style: none;
 }
@@ -22,6 +26,57 @@
 .Usersettings .ApiTokensPanel .keyremovebutton:disabled {
     background-color: var(--background);
 }
+
+.Usersettings .ApiTokensPanel .keyeditbutton {
+    background-color: var(--primary);
+    border-radius: 6px;
+    margin: 20px 5px;
+    padding: 5px 20px;
+    border-style: none;
+}
+
+.Usersettings .ApiTokensPanel .keyeditbutton:disabled {
+    background-color: var(--background);
+}
+
+.Usersettings .ApiTokensPanel .editkeyform input {
+    display: flex;
+    flex-direction: row;
+}
+
+.Usersettings .ApiTokensPanel .editkeyform label, .Usersettings .ApiTokensPanel .editkeyform input {
+    display: block;
+}
+
+.Usersettings .ApiTokensPanel .editkeyform input  {
+    color: black;
+    border-radius: 6px;
+    border-style: none;
+    width: 100%;
+    height: 30px;
+    padding: 5px;
+}
+
+.Usersettings .ApiTokensPanel .editkeyform button {
+    background-color: var(--special);
+    color: black;
+    font-weight: bold;
+    border-radius: 6px;
+    margin: 20px 5px;
+    padding: 5px 20px;
+    border-style: none;
+}
+
+.Usersettings .ApiTokensPanel .editkeyform .abortedit {
+    background-color: var(--background);
+    color: var(--white);
+    font-weight: bold;
+    border-radius: 6px;
+    margin: 20px 5px;
+    padding: 5px 20px;
+    border-style: none;
+}
+
 
 .Usersettings .ApiTokensPanel .newkeyform input {
     display: flex;
