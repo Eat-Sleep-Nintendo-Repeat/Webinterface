@@ -154,9 +154,9 @@ const UserWarnsCard = ({data}) => {
             <h1>Verwarnungen ({WarnsData && WarnsData.length})</h1>
             {isWarnsPending && <h3>Suche Verwarnungen...</h3>}
             {isWarnsError && <div><h1>Ein Fehler ist aufgetreten</h1> <p>{isWarnsError}</p></div>}
-            {WarnsData && WarnsData.length > 0 && WarnsData.map(x => (
+            {WarnsData && WarnsData.length > 0 && WarnsData.map((x, index) => (
                 <ul className="warns">
-                    <WarnListItem  warndata={x}/>
+                    <WarnListItem  warndata={x} index={index}/>
                 </ul>
             ))}
 
@@ -168,7 +168,7 @@ const UserWarnsCard = ({data}) => {
     )
 }
 
-const WarnListItem = ({warndata}) => {
+const WarnListItem = ({warndata, index}) => {
 
     const [ExecuterData, SetExecuterData] = useState(null)
     const [ExecuterError, SetExecuterError] = useState(false)
@@ -186,7 +186,7 @@ const WarnListItem = ({warndata}) => {
 
 
     return (
-        <li className="warn" key={warndata["_id"]}>
+        <li className="warn" key={index}>
             <div className="head">
                 <div className="executor">
                     <h3>#{warndata["_id"]}</h3>

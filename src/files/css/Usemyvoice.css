@@ -1,0 +1,105 @@
+.usemyvoice .header{
+    text-align: center;
+}
+
+.usemyvoice .status .statushead {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+}
+
+.usemyvoice .status .circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.usemyvoice .denied .circle {
+    background-color: var(--error);
+}
+
+.usemyvoice .accepted .circle {
+    background-color: var(--success);
+}
+
+.usemyvoice p {
+    text-align: center;
+}
+
+.usemyvoice .toformbutton, .usemyvoice .toremovebutton {
+    text-align: center;
+}
+
+.usemyvoice .toformbutton button {
+    background-color: var(--primary);
+    border-radius: 6px;
+    margin: 20px 5px;
+    padding: 5px 20px;
+    border-style: none;
+    font-size: 2.5vh;
+    min-width: 300px;
+}
+
+.usemyvoice .toremovebutton button {
+    background-color: var(--error);
+    border-radius: 6px;
+    margin: 20px 5px;
+    padding: 5px 20px;
+    border-style: none;
+    font-size: 2.5vh;
+    min-width: 300px;
+}
+
+.usemyvoice .form p {
+    text-align: left;
+}
+
+.usemyvoice .form li {
+    margin: 0 20px;
+}
+
+.usemyvoice .form {
+    background-color: var(--white);
+}
+
+.usemyvoice .form * {
+    color: black;
+    font-family: sans-serif;
+}
+
+.usemyvoice .form input {
+    display: flex;
+    flex-direction: row;
+}
+
+.usemyvoice .form label, .usemyvoice .form label {
+    display: block;
+    font-size: 13px;
+}
+
+.usemyvoice .form #signature {
+    color: black;
+    background-color: lightgray;
+    border-radius: 6px;
+    border-style: none;
+    width: 100%;
+    height: 30px;
+    padding: 5px;
+    margin: 10px 0;
+}
+
+.usemyvoice .form [type="checkbox"]{
+margin: 0 10px;
+}
+
+.usemyvoice .form button {
+    background-color: var(--primary);
+    color: white;
+    border-radius: 6px;
+    margin: 20px 5px;
+    padding: 5px 20px;
+    border-style: none;
+    font-size: 2.5vh;
+}

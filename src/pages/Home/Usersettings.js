@@ -1,5 +1,5 @@
-import "../files/css/Usersettings.css"
-import {axios, baseUrl} from "../api"
+import "../../files/css/Usersettings.css"
+import {axios, baseUrl} from "../../api"
 import { useEffect } from "react";
 import { useState } from "react";
 import { AiFillWarning } from "react-icons/ai";
@@ -180,7 +180,7 @@ const APITokensPanel = () => {
             SetIsError(e.message)
         })
     }
-
+    
     return (
         <div className="ApiTokensPanel box">
             <h1>API Tokens</h1>

@@ -34,3 +34,43 @@ body {
   background-color: #1c1f22;
   border-radius: 6px;
 }
+
+/* submenu */
+.submenu ul {
+  list-style: none;
+}
+
+.submenu ul {
+  list-style: none;
+}
+
+@media screen and (min-width: 1300px){
+  .content-split {
+    display: grid;
+    grid-template-columns: 300px 1fr 1fr 1fr 1fr;
+  }
+
+  .content-split .submenu {
+    grid-column: 0/1;
+    margin: 0;
+    padding: 12px;
+    background-color: #1c1f22;
+    border-radius: 0;
+    min-height: 92vh;
+  }
+
+  .content-split .submenu h2 {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .content-split .content {
+    grid-column: 2/6;
+  }
+
+  .submenu a:hover {
+    color: var(--primary);
+    font-weight: bold;
+  }
+
+}

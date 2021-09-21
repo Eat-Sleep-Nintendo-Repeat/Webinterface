@@ -40,9 +40,8 @@ axios.interceptors.response.use(
               return axios(originalRequest);
             }
           }).catch(e => {
-            document.cookie = `redirect=${window.location.href}`;
             setTimeout(() => {
-              window.location = `${baseUrl}/auth/discord`
+              window.location = `${baseUrl}/auth/discord?redirect=${window.location.href}`
             }, 500);
           });
       }
@@ -51,8 +50,7 @@ axios.interceptors.response.use(
         error.response.status === 401 &&
         !originalRequest.retry
       ) {
-        document.cookie = `redirect=${window.location.href}`;
-          window.location = `${baseUrl}/auth/discord`
+          window.location = `${baseUrl}/auth/discord?redirect=${window.location.href}`
       }
       return Promise.reject(error);
     }
