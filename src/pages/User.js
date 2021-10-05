@@ -4,7 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import "../files/css/User.css"
 
 import Boostericon from "../files/images/nitro.png"
-import CoinIcon from "../files/images/esc.png"
+import CoinIcon from "../files/images/Eat Sleep Coin.svg"
 import DefaultUserIcon from "../files/images/default-pb.jpg"
 
 const User = () => {
