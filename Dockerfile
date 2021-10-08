@@ -13,9 +13,9 @@ RUN npm install -g serve
 #TAEFIK CONFIG
 LABEL traefik.enable="true" \
       traefik.http.routers.esnr-ui.entrypoints="websecure" \
-      traefik.http.routers.esnr-ui.rule="Host(`eat-sleep-nintendo-repeat.eu`)" \
+      traefik.http.routers.esnr-ui.rule="Host(`ui.eat-sleep-nintendo-repeat.eu`)" \
       traefik.port="80" \
-      traefik.http.routers.esnr-ui.tls.certresolver="lets-encr"
+      traefik.http.routers.esnr-ui.tls.certresolver="letsencrypt"
 
 EXPOSE 80
 
