@@ -1,0 +1,134 @@
+.Usersettings .headtitle {
+    text-align: center;
+    font-size: 40px;
+}
+
+.Usersettings .ApiTokensPanel a {
+    color: var(--primary);
+}
+
+.Usersettings .ApiTokensPanel ul {
+    list-style: none;
+}
+
+.Usersettings .ApiTokensPanel summary {
+    font-weight: bold;
+}
+
+.Usersettings .ApiTokensPanel .keyremovebutton {
+    background-color: var(--error);
+    border-radius: 6px;
+    margin: 20px 5px;
+    padding: 5px 20px;
+    border-style: none;
+}
+
+.Usersettings .ApiTokensPanel .keyremovebutton:disabled {
+    background-color: var(--background);
+}
+
+.Usersettings .ApiTokensPanel .keyeditbutton {
+    background-color: var(--primary);
+    border-radius: 6px;
+    margin: 20px 5px;
+    padding: 5px 20px;
+    border-style: none;
+}
+
+.Usersettings .ApiTokensPanel .keyeditbutton:disabled {
+    background-color: var(--background);
+}
+
+.Usersettings .ApiTokensPanel .editkeyform input {
+    display: flex;
+    flex-direction: row;
+}
+
+.Usersettings .ApiTokensPanel .editkeyform label, .Usersettings .ApiTokensPanel .editkeyform input {
+    display: block;
+}
+
+.Usersettings .ApiTokensPanel .editkeyform input  {
+    color: black;
+    border-radius: 6px;
+    border-style: none;
+    width: 100%;
+    height: 30px;
+    padding: 5px;
+}
+
+.Usersettings .ApiTokensPanel .editkeyform button {
+    background-color: var(--special);
+    color: black;
+    font-weight: bold;
+    border-radius: 6px;
+    margin: 20px 5px;
+    padding: 5px 20px;
+    border-style: none;
+}
+
+.Usersettings .ApiTokensPanel .editkeyform .abortedit {
+    background-color: var(--background);
+    color: var(--white);
+    font-weight: bold;
+    border-radius: 6px;
+    margin: 20px 5px;
+    padding: 5px 20px;
+    border-style: none;
+}
+
+
+.Usersettings .ApiTokensPanel .newkeyform input {
+    display: flex;
+    flex-direction: row;
+}
+
+.Usersettings .ApiTokensPanel .newkeyform label, .Usersettings .ApiTokensPanel .newkeyform input {
+    display: block;
+}
+
+.Usersettings .ApiTokensPanel .newkeyform input  {
+    color: black;
+    border-radius: 6px;
+    border-style: none;
+    width: 100%;
+    height: 30px;
+    padding: 5px;
+}
+
+.Usersettings .ApiTokensPanel .newkeyform button {
+    background-color: var(--success);
+    color: black;
+    font-weight: bold;
+    border-radius: 6px;
+    margin-top: 20px;
+    padding: 5px 20px;
+    border-style: none;
+}
+
+.Usersettings .ApiTokensPanel .newkeyform button:disabled  {
+    background-color: var(--background);
+    color: var(--white);
+}
+
+.Usersettings .ApiTokensPanel .newkey .warnbox {
+    background-color: var(--error);
+}
+
+.Usersettings .ApiTokensPanel .newkey .token {
+    background-color: #020202;
+    border-radius: 6px;
+    padding: 3px;
+}
+
+.Usersettings .ApiTokensPanel .newkey .token samp {
+    word-break: break-all;
+}
+
+.Usersettings .ApiTokensPanel .newkey .closenewkey {
+    background-color: var(--primary);
+    border-radius: 6px;
+    margin-top: 20px;
+    padding: 5px 20px;
+    border-style: none;
+}

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import axios from "../api"
+import {axios, baseUrl} from "../api"
 import { useParams, Link } from "react-router-dom";
 import "../files/css/User.css"
 
 import Boostericon from "../files/images/nitro.png"
-import CoinIcon from "../files/images/esc.png"
+import CoinIcon from "../files/images/Eat Sleep Coin.svg"
 import DefaultUserIcon from "../files/images/default-pb.jpg"
 
 const User = () => {
@@ -17,7 +17,7 @@ const User = () => {
 
     useEffect(() => {
         //fetch Userdata
-        axios.get(`https://eat-sleep-nintendo-repeat.eu/api/v1/users/${id}`).then(res => {
+        axios.get(`${baseUrl}/users/${id}`).then(res => {
             if (res.status > 399) throw Error("bad response code")
             SetisPending(false)
             return SetUserData(res.data)
@@ -136,7 +136,7 @@ const UserWarnsCard = ({data}) => {
 
     useEffect(() => {
         //fetch Warnsdata
-        axios.get(`https://eat-sleep-nintendo-repeat.eu/api/v1/warns?id=${data.id}`).then(res => {
+        axios.get(`${baseUrl}/warns?id=${data.id}`).then(res => {
             if (res.status > 399) throw Error("bad response code")
             console.log(res.data)
             SetisWarnsPending(false)
@@ -154,9 +154,9 @@ const UserWarnsCard = ({data}) => {
             <h1>Verwarnungen ({WarnsData && WarnsData.length})</h1>
             {isWarnsPending && <h3>Suche Verwarnungen...</h3>}
             {isWarnsError && <div><h1>Ein Fehler ist aufgetreten</h1> <p>{isWarnsError}</p></div>}
-            {WarnsData && WarnsData.length > 0 && WarnsData.map(x => (
+            {WarnsData && WarnsData.length > 0 && WarnsData.map((x, index) => (
                 <ul className="warns">
-                    <WarnListItem  warndata={x}/>
+                    <WarnListItem  warndata={x} index={index}/>
                 </ul>
             ))}
 
@@ -168,14 +168,14 @@ const UserWarnsCard = ({data}) => {
     )
 }
 
-const WarnListItem = ({warndata}) => {
+const WarnListItem = ({warndata, index}) => {
 
     const [ExecuterData, SetExecuterData] = useState(null)
     const [ExecuterError, SetExecuterError] = useState(false)
     const [ExecuterPending, SetExecuterPending] = useState(true)
 
     useEffect(() => {
-        axios.get(`https://eat-sleep-nintendo-repeat.eu/api/v1/users/${warndata.executor}`).then(res => {
+        axios.get(`${baseUrl}/users/${warndata.executor}`).then(res => {
             SetExecuterData(res.data)
             SetExecuterPending(false)
             }).catch((e => {
@@ -186,7 +186,7 @@ const WarnListItem = ({warndata}) => {
 
 
     return (
-        <li className="warn" key={warndata["_id"]}>
+        <li className="warn" key={index}>
             <div className="head">
                 <div className="executor">
                     <h3>#{warndata["_id"]}</h3>

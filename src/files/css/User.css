@@ -85,7 +85,8 @@
 }
 
 .UserPage .UserCoinCard img {
-    width: 30px;
+    width: 20px;
+    margin: 0 3px;
 }
 
 .UserPage .UserCoinCard hr {

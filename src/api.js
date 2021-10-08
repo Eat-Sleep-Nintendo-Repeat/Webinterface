@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from 'js-cookie';
 
-const baseUrl = "https://eat-sleep-nintendo-repeat.eu/api/v1"
+const baseUrl = "https://api.eat-sleep-nintendo-repeat.eu"
 
 //request interceptor to add the auth token header to requests
 axios.interceptors.request.use(
@@ -40,10 +40,9 @@ axios.interceptors.response.use(
               return axios(originalRequest);
             }
           }).catch(e => {
-            document.cookie = `redirect=${window.location.href}`;
             setTimeout(() => {
-              window.location = `${baseUrl}/auth/discord`
-            }, 1000);
+              window.location = `${baseUrl}/auth/discord?redirect=${window.location.href}`
+            }, 500);
           });
       }
       else if (
@@ -51,13 +50,10 @@ axios.interceptors.response.use(
         error.response.status === 401 &&
         !originalRequest.retry
       ) {
-        document.cookie = `redirect=${window.location.href}`;
-        setTimeout(() => {
-          window.location = `${baseUrl}/auth/discord`
-        }, 1000);
+          window.location = `${baseUrl}/auth/discord?redirect=${window.location.href}`
       }
       return Promise.reject(error);
     }
   );
 
-  export default axios;
+export { axios, baseUrl }
