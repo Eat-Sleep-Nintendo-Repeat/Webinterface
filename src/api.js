@@ -1,14 +1,14 @@
 import axios from "axios";
 import Cookies from 'js-cookie';
 
-const baseUrl = "https://api.eat-sleep-nintendo-repeat.eu"
+const baseUrl = "http://192.168.178.31:5670/api"
 
 //request interceptor to add the auth token header to requests
 axios.interceptors.request.use(
     (config) => {
       const accessToken = localStorage.getItem("accessToken");
       if (accessToken) {
-        config.headers["Authorization"] = `Access ${accessToken}`;
+        config.headers["Authentication"] = `Access ${accessToken}`;
       }
       return config;
     },
@@ -32,7 +32,7 @@ axios.interceptors.response.use(
       ) {
         originalRequest.retry = true;
         return axios
-          .get(`${baseUrl}/auth/token-exchange`, {withCredentials: true})
+          .get(`${baseUrl}/auth/accesstoken`, {withCredentials: true})
           .then((res) => {
             if (res.status === 200) {
               localStorage.setItem("accessToken", res.data.token);
