@@ -23,7 +23,7 @@ const APITokensPanel = () => {
 
     useEffect(() => {
         //fetch tokens
-        axios.get(baseUrl + "/auth/keys").then(res => {
+        axios.get(baseUrl + "/tokens").then(res => {
             SetisPending(false)
             setApiKeys(res.data)
         }).catch(e => {
@@ -74,13 +74,13 @@ const APITokensPanel = () => {
 
         SetIsNewKeyPendig(true)
         SetIsNewKeyPendig(false)
-        axios.put(baseUrl + `/auth/keys/${isEditing}`, put_body).then(res => {
+        axios.put(baseUrl + `/tokens/${isEditing}`, put_body).then(res => {
             SetIsEditingPending(false)
             SetisEditing(false)
             SetEditingCORS(false)
             SetEditingName("")
 
-            axios.get(baseUrl + "/auth/keys").then(res => {
+            axios.get(baseUrl + "/tokens").then(res => {
                 setApiKeys(res.data)
                 SetisClickPending(false)
                 })
@@ -108,9 +108,9 @@ const APITokensPanel = () => {
     const [isClickPending, SetisClickPending] = useState(false)
     function HandleRemoveClick(keyid) {
         SetisClickPending(true)
-        axios.delete(baseUrl + `/auth/keys/${keyid}`).then(res => {
+        axios.delete(baseUrl + `/tokens/${keyid}`).then(res => {
 
-            axios.get(baseUrl + "/auth/keys").then(res => {
+            axios.get(baseUrl + "/tokens").then(res => {
             setApiKeys(res.data)
             SetisClickPending(false)
             })
@@ -145,7 +145,7 @@ const APITokensPanel = () => {
         e.preventDefault(); //prevents button to reload page
 
         SetIsNewKeyPendig(true)
-        axios.post(baseUrl + "/auth/keys", {name: Name}).then(res => {
+        axios.post(baseUrl + "/tokens", {name: Name}).then(res => {
             SetIsNewKeyError(false)
             SetIsNewKeyPendig(false)
             SetNewKey(res.data)
@@ -174,7 +174,7 @@ const APITokensPanel = () => {
         e.preventDefault(); //prevents button to reload page
 
         SetNewKey(null)
-        axios.get(baseUrl + "/auth/keys").then(res => {
+        axios.get(baseUrl + "/tokens").then(res => {
             setApiKeys(res.data)
         }).catch(e => {
             SetIsError(e.message)
