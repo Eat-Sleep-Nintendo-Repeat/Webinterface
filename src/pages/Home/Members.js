@@ -32,7 +32,7 @@ const Members = () => {
             axios.get(baseUrl + `/users${args.map((x, index) => `${index == 0 ? "?" : "&"}${x.name}=${x.value}`).join("")}`).then(res => {
                 if (cancel) return;
                 SetPendigSearchData(false)
-                SetSearchData(res.data)
+                SetSearchData(res.data.filter(x => x.type != 50))
             }).catch(e => {
                 SetPendigSearchData(false)
                 var content = e.message
