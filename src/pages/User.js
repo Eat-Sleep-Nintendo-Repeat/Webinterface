@@ -24,7 +24,6 @@ const User = () => {
         })
         .catch(e => {
             SetisPending(false)
-            console.log(e)
             if (e.response.status === 404) return SetIsError("Der User konnte nicht gefunden werden")
             SetIsError(e.message)
         })
@@ -138,7 +137,6 @@ const UserWarnsCard = ({data}) => {
         //fetch Warnsdata
         axios.get(`${baseUrl}/warns?id=${data.id}`).then(res => {
             if (res.status > 399) throw Error("bad response code")
-            console.log(res.data)
             SetisWarnsPending(false)
             return SetWarnsData(res.data)
         })

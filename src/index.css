@@ -74,3 +74,12 @@ body {
   }
 
 }
+
+.Turnements {
+  text-align: center;
+  justify-content: center;
+  vertical-align: middle;
+  height: 90vh;
+  padding-top: 30vh;
+
+}
