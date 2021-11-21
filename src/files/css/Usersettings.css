@@ -132,3 +132,9 @@
     padding: 5px 20px;
     border-style: none;
 }
+
+.Usersettings .ApiTokensPanel .load-wraper {
+    height: 15px;
+    width: 200px;
+    margin-top: 20px;
+}

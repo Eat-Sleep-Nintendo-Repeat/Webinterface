@@ -144,7 +144,7 @@ const Usemyvoice = () => {
             </div>
 
             {/* Status Pannel */}
-            {UsemyvoiceData && showForm == false && <div className={`box status ${UsemyvoiceData.accepted ? "accepted": "denied"}`}>
+            {UsemyvoiceData && PendingUsemyvoiceData == false && showForm == false && <div className={`box status ${UsemyvoiceData.accepted ? "accepted": "denied"}`}>
                 <div className="statushead">
                     <div className="circle" />
                     {UsemyvoiceData.state === null && <h1>noch nicht akzeptiert</h1>}
@@ -175,6 +175,9 @@ const Usemyvoice = () => {
                 </div>
 
             </div>}
+
+            {/* Placeholders */}
+            {PendingUsemyvoiceData == true && <div style={{height: "130px"}} className="box load-wraper"><div className="activity"></div></div>}
 
             {UsemyvoiceData && showForm && <div className="box form">
                     <h3 style={{fontWeight: "bold", textDecoration: "underline", textAlign: "center"}}>Einverständniserklärung zur Nutzung von Stimmenaufnahmen und Nutzerinformationen</h3>

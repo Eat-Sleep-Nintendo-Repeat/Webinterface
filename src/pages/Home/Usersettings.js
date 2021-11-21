@@ -186,7 +186,12 @@ const APITokensPanel = () => {
             <h1>API Tokens</h1>
             <p><a href="https://github.com/Eat-Sleep-Nintendo-Repeat/API/wiki/API-Documentation">Hier</a> findest du die Dokumentation der Eat, Sleep, Nintendo, Repeat API.</p>
 
-            {isPending && <p>Lade deine API Tokens...</p>}
+            {isPending && 
+                <ul>
+                    <li><div className="load-wraper"><div className="activity"></div></div></li>
+                    <li><div className="load-wraper"><div className="activity"></div></div></li>
+                    <li><div className="load-wraper"><div className="activity"></div></div></li>
+                </ul>}
             {isError && <p>Error {isError}</p>}
             {apiKeys && isEditing === false && apiKeys.length === 0 ? <p>Du hast keine API Keys erstellt</p> : <h3>Deine API Keys:</h3>}
             {apiKeys && isEditing === false && <ul>

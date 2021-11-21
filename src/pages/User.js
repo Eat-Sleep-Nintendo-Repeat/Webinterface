@@ -31,13 +31,9 @@ const User = () => {
 
     return ( 
         <div>
-            {isPending && <h1>Loading...</h1>}
-            {isError && <div>
-            <h1>Ein Fehler ist aufgetreten</h1> 
-            <p>{isError}</p>
-            </div>
-            }
-            {UserData && 
+            {isPending && <div className="UserPendingload-wraper"><div className="activity"></div></div>}
+
+            {UserData && isPending == false && 
             <div className="UserPage">
             <Removalnotice data={UserData}/>
             <UserMainCard data={UserData}/>

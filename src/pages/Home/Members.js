@@ -22,7 +22,7 @@ const Members = () => {
         var args = [];
         if (searchQueryID != "") args.push({name: "id", value: searchQueryID})
         if (searchQueryName != "") args.push({name: "username", value: searchQueryName})
-        if (searchQueryDiscriminator != "") args.push({name: "discriminator", value: searchQueryDiscriminator})
+        if (searchQueryDiscriminator != "") args.push({name: "discriminator", value: searchQueryDiscriminator.replace("#", "")})
         
         SetPendigSearchData(true)
 
