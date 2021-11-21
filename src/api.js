@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from 'js-cookie';
 
-const baseUrl = "http://192.168.178.31:5670/api"
+const baseUrl = "https://eat-sleep-nintendo-repeat.eu/api"
 
 //request interceptor to add the auth token header to requests
 axios.interceptors.request.use(
