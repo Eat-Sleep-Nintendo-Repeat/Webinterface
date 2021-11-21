@@ -13,7 +13,15 @@
 }
 
 .Members .searchForm form #discriminator {
-    grid-column: 4/5;
+    grid-column: 4/6;
+}
+
+.Members .searchForm form #discriminator input {
+    width: 100%;
+}
+
+.Members .searchForm form #username input {
+    width: 100%;
 }
 
 .Members .searchForm form #id {
@@ -21,9 +29,16 @@
     grid-template-rows: 2;
 }
 
+.Members .searchForm form div {
+    display: flex;
+    align-items: center;
+}
+.Members .searchForm form div h3 {
+    font-size: 25px;
+}
+
 .Members .searchForm form input {
     margin: 5px;
-    width: 98%;
     height: 40px;
     color: black;
     border-radius: 6px;

@@ -55,40 +55,18 @@ const Members = () => {
         return () => cancel = true;
     }, [searchQueryName, searchQueryDiscriminator, searchQueryID])
 
-
-
-    //first database fetch
-    useEffect(() => {
-        axios.get(baseUrl + "/users").then(res => {
-            SetPendigSearchData(false)
-            SetSearchData(res.data)
-        }).catch(e => {
-            SetPendigSearchData(false)
-            var content = e.message
-            if (e.response && e.response.data.error) {
-                content = e.response.data.error
-            }
-            store.addNotification({
-                title: "API Error",
-                message: content,
-                type: "danger",
-                container: "top-right",
-                dismiss: {
-                    duration: 5000,
-                    onScreen: true
-                  }
-            })
-        })
-    }, [])
-
-
-
     return ( <div className="Members">
                 <h1 className="Pagetitle">Member Search</h1>
                 <div className="searchForm">
                     <form>
-                        {searchQueryID === "" && <input autoComplete="off" type="text" id="username" value={searchQueryName} placeholder="Username" onChange={(e) => {SetSearchQueryName(e.target.value)}}/>}
-                        {searchQueryID === "" && <input autoComplete="off" type="text" id="discriminator" value={searchQueryDiscriminator} placeholder="Discriminator" onChange={(e) => {SetSearchQueryDiscriminator(e.target.value)}}/>}
+                        <div id="username">
+                            {searchQueryID === "" &&<h3>@</h3>}
+                            {searchQueryID === "" && <input autoComplete="off" type="text" value={searchQueryName} placeholder="username" onChange={(e) => {SetSearchQueryName(e.target.value)}}/>}
+                        </div>
+                        <div id="discriminator">
+                            {searchQueryID === "" && <h3>#</h3>}
+                            {searchQueryID === "" && <input autoComplete="off" type="text" value={searchQueryDiscriminator} placeholder="1234" onChange={(e) => {SetSearchQueryDiscriminator(e.target.value)}}/>}
+                        </div>
                         <input autoComplete="off" type="text" id="id" value={searchQueryID} placeholder="ID" onChange={(e) => {SetSearchQueryID(e.target.value); SetSearchQueryDiscriminator(""); SetSearchQueryName("")}}/>
                     </form>
                 <div>

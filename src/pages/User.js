@@ -191,7 +191,7 @@ const WarnListItem = ({warndata, index}) => {
             </div>
 
             <div className="executor">
-                <p className="thicc">erhalten von:</p>
+                <p className="thicc">Erhalten von:</p>
                 {ExecuterPending && <p> loading...</p>}
                     {ExecuterError && <p>???</p>}
                     {ExecuterData && <Link to={`/user/${ExecuterData.id}`}>{ExecuterData.username}#{ExecuterData.discriminator}</Link>}
@@ -209,7 +209,7 @@ const WarnListItem = ({warndata, index}) => {
 const Removalnotice = ({data}) => {
     return (
         <div className="Removalnotice">
-            {data.delete_in && <p>Dieser Nutzer wird am {new window.Date(data.delete_in).toLocaleDateString("de-DE")} aus der Database gelöscht!</p> }
+            {data.delete_in && <p>Dieser Nutzer wird am {new window.Date(data.delete_in).toLocaleDateString("de-DE")} aus der Datenbank gelöscht!</p> }
             </div>
     )
 }
