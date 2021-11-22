@@ -38,7 +38,7 @@ const User = () => {
             <Removalnotice data={UserData}/>
             <UserMainCard data={UserData}/>
             <UserRankCard data={UserData}/>
-            <UserCoinCard data={UserData}/>
+            <UserGemCard data={UserData}/>
             <UserWarnsCard data={UserData}/>
             </div>
             }
@@ -89,25 +89,25 @@ const UserRankCard = ({data}) => {
      );
 }
 
-const UserCoinCard = ({data}) => {
+const UserGemCard = ({data}) => {
 
     return ( 
-        <div className="UserCoinCard box">
+        <div className="UserGemCard box">
                 <h1>Gems:</h1>
                 <div className="flex">
-                    <h2>{data.currencys.coins.amount}</h2>
+                    <h2>{data.currencys.gems.amount}</h2>
                     <img src={GemIcon} alt="gems" />
                 </div>
 
-                {data.currencys.coins.log.length > 0 && <hr />}
+                {data.currencys.gems.log.length > 0 && <hr />}
 
-                {data.currencys.coins.log.length > 0 && <h3>Buchungen:</h3>}
+                {data.currencys.gems.log.length > 0 && <h3>Buchungen:</h3>}
                 <ul className="purchases">
-                    {data.currencys.coins.log.map((x, index) => (
+                    {data.currencys.gems.log.map((x, index) => (
                         <li className="purchase" key={index}>
                             <div className="value">
                                 <h4 className={x.value < 0 ? "negative" : undefined}>{x.value}</h4>
-                                <img src={GemIcon} alt="coins" />
+                                <img src={GemIcon} alt="gems" />
                             </div>
                             <h4>{x.description}</h4>
                             <h4>{new window.Date(x.date).toLocaleDateString("de-DE")}</h4>

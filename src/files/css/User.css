@@ -72,52 +72,52 @@
   border-radius: 4px;
 }
 
-/* coin card */
-.UserPage .UserCoinCard h1 {
+/* gem card */
+.UserPage .UserGemCard h1 {
     text-align: center;
     justify-content: center;
 }
 
-.UserPage .UserCoinCard .flex {
+.UserPage .UserGemCard .flex {
     text-align: center;
     justify-content: center;
     align-items: center;
 }
 
-.UserPage .UserCoinCard img {
+.UserPage .UserGemCard img {
     width: 20px;
     margin: 0 3px;
 }
 
-.UserPage .UserCoinCard .flex img {
+.UserPage .UserGemCard .flex img {
     width: 30px;
     margin: 0 3px;
 }
 
-.UserPage .UserCoinCard hr {
+.UserPage .UserGemCard hr {
     color: var(--white);
 }
 
-.UserPage .UserCoinCard .purchases{ 
+.UserPage .UserGemCard .purchases{ 
 /* this is the ul */
     list-style: none;
 }
 
-.UserPage .UserCoinCard .purchase {
+.UserPage .UserGemCard .purchase {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
 
-.UserPage .UserCoinCard .purchase .value {
+.UserPage .UserGemCard .purchase .value {
     display: flex;
 }
 
-.UserPage .UserCoinCard .purchase .value h4 {
+.UserPage .UserGemCard .purchase .value h4 {
     color: var(--success)
 }
 
 
-.UserPage .UserCoinCard .purchase h4 {
+.UserPage .UserGemCard .purchase h4 {
     /* cuts of things that are to long */
   overflow: hidden;
   white-space: nowrap;
@@ -125,11 +125,11 @@
   max-width: 30vw;
 }
 
-.UserPage .UserCoinCard .purchase .value .negative {
+.UserPage .UserGemCard .purchase .value .negative {
     color: var(--error)
 }
 
-.UserPage .UserCoinCard .purchase *{
+.UserPage .UserGemCard .purchase *{
     justify-content: center;
     text-align: center;
 }
@@ -212,7 +212,7 @@
         display: block;
     }
 
-    .UserPage .UserCoinCard {
+    .UserPage .UserGemCard {
         grid-column: 2/3;
     }
 
