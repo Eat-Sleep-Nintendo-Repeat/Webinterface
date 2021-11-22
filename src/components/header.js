@@ -58,7 +58,7 @@ const Header = () => {
             
             
             <ul className={`nav-links${menuExpandet ? " nav-active" : ""}`}>
-                <li><Link onClick={handeMenuClick} to="/home">Home</Link></li>
+                <li><Link onClick={handeMenuClick} to="/home/members">Home</Link></li>
                 <li><Link onClick={handeMenuClick} to="/shop">Shop</Link></li>
                 <li><Link onClick={handeMenuClick} to="/turnements">Turniere</Link></li>
                 {User && <li><HeaderUserButton handeMenuClick={handeMenuClick} User={User}/></li>}
