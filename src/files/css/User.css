@@ -89,6 +89,11 @@
     margin: 0 3px;
 }
 
+.UserPage .UserCoinCard .flex img {
+    width: 30px;
+    margin: 0 3px;
+}
+
 .UserPage .UserCoinCard hr {
     color: var(--white);
 }

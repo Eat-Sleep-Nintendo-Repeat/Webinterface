@@ -4,7 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import "../files/css/User.css"
 
 import Boostericon from "../files/images/nitro.png"
-import CoinIcon from "../files/images/Eat Sleep Coin.svg"
+import GemIcon from "../files/images/Eat, Sleep, Gem.svg"
 import DefaultUserIcon from "../files/images/default-pb.jpg"
 
 const User = () => {
@@ -93,10 +93,10 @@ const UserCoinCard = ({data}) => {
 
     return ( 
         <div className="UserCoinCard box">
-                <h1>Coins:</h1>
+                <h1>Gems:</h1>
                 <div className="flex">
                     <h2>{data.currencys.coins.amount}</h2>
-                    <img src={CoinIcon} alt="coins" />
+                    <img src={GemIcon} alt="gems" />
                 </div>
 
                 {data.currencys.coins.log.length > 0 && <hr />}
@@ -107,7 +107,7 @@ const UserCoinCard = ({data}) => {
                         <li className="purchase" key={index}>
                             <div className="value">
                                 <h4 className={x.value < 0 ? "negative" : undefined}>{x.value}</h4>
-                                <img src={CoinIcon} alt="coins" />
+                                <img src={GemIcon} alt="coins" />
                             </div>
                             <h4>{x.description}</h4>
                             <h4>{new window.Date(x.date).toLocaleDateString("de-DE")}</h4>
