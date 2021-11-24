@@ -8,11 +8,117 @@ import { store } from 'react-notifications-component';
 const Usersettings = () => {
     return ( 
         <div className = "Usersettings">
-            <h1 className="headtitle">User Settings</h1>
+            <h1 className="headtitle">User Einstellungen</h1>
+            <UserSettingsPanel />
             <APITokensPanel />
         </div>
      );
 }
+
+const UserSettingsPanel = () => {
+
+    const [userSettingsData, SetUserSettingsData] = useState(null)
+    const [pendingUserSettingsData, SetPendingUserSettingsData] = useState(true)
+    const [pendingSafing, SetPendingSafing] = useState(false)
+
+    const [Levelup_notify, SetLevelup_notify] = useState(null)
+    const [Page_private, SetPage_private] = useState(null)
+
+    useEffect(() => {
+        SetPendingUserSettingsData(true)
+        axios.get(baseUrl + "/settings").then(res => {
+        SetPendingUserSettingsData(false)
+        SetUserSettingsData(res.data)
+
+        SetLevelup_notify(res.data.levelup_notify)
+        SetPage_private(res.data.page_private)
+        }).catch(e => {
+            SetPendingUserSettingsData(false)
+            var content = e.message
+            if (e.response && e.response.data.error) {
+                content = <p>{e.response.data.error}</p>
+            }
+            store.addNotification({
+                title: "API Error",
+                message: content,
+                type: "danger",
+                container: "top-right",
+                dismiss: {
+                    duration: 5000,
+                    onScreen: true
+                  }
+            })
+        })
+
+    }, [])
+
+    function handleSettingsSafe() {
+        SetPendingSafing(true)
+        
+        axios.post(baseUrl + "/settings", {levelup_notify: Levelup_notify, page_private: Page_private}).then(res => {
+            SetPendingSafing(false)
+            console.log({levelup_notify: Levelup_notify, page_private: Page_private})
+            store.addNotification({
+                message: "Wir haben deine Einstellungen gespeichert!",
+                type: "success",
+                container: "top-right",
+                dismiss: {
+                    duration: 5000,
+                    onScreen: true
+                  }
+            })
+        }).catch(e => {
+            SetPendingUserSettingsData(false)
+            var content = e.message
+            if (e.response && e.response.data.error) {
+                content = <p>{e.response.data.error}</p>
+            }
+            store.addNotification({
+                title: "API Error",
+                message: content,
+                type: "danger",
+                container: "top-right",
+                dismiss: {
+                    duration: 5000,
+                    onScreen: true
+                  }
+            })
+        })
+    }
+
+    return (
+        <div className="UserSettingsPanel box">
+            {userSettingsData && pendingUserSettingsData === false && <div>
+                
+                <h2>Levelup Notification:</h2>
+                <div className="flex">
+                    <input disabled={pendingSafing} id="lvnotify" type="checkbox" checked={Levelup_notify} onChange={(e) => SetLevelup_notify(e.target.checked)}/>
+                    <label htmlFor="lvnotify">Benachrichtige mich, wenn ich ein neues Level erreicht habe</label>
+                </div>
+
+                <h2>Privatsphäre:</h2>
+                <div className="flex">
+                    <input disabled={pendingSafing} id="pageprivate" type="checkbox" checked={Page_private} onChange={(e) => SetPage_private(e.target.checked)}/>
+                    <label htmlFor="pageprivate">Meine Daten wie Gems, Ausgaben, Level und weiteres in meinen Rangkarten oder meiner Profilseite unkenntlich anzeigen, und mich in der Rangliste nicht anzeigen</label>
+                </div>
+
+                <button disabled={pendingSafing} onClick={handleSettingsSafe}>Speichern</button>
+            </div>}
+
+
+            {pendingUserSettingsData && <div>
+                
+                <ul>
+                    <li><div className="load-wraper"><div className="activity"></div></div></li>
+                    <li><div className="load-wraper"><div className="activity"></div></div></li>
+                    <li><div className="load-wraper"><div className="activity"></div></div></li>
+                </ul>
+
+            </div>}
+        </div>
+    )
+}
+
 
 const APITokensPanel = () => {
 
