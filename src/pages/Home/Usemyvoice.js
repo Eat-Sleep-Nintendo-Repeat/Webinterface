@@ -177,7 +177,7 @@ const Usemyvoice = () => {
             </div>}
 
             {/* Placeholders */}
-            {PendingUsemyvoiceData == true && <div style={{height: "130px"}} className="box load-wraper"><div className="activity"></div></div>}
+            {PendingUsemyvoiceData == true && <div style={{height: "130px", width: "98%"}} className="box load-wraper"><div className="activity"></div></div>}
 
             {UsemyvoiceData && showForm && <div className="box form">
                     <h3 style={{fontWeight: "bold", textDecoration: "underline", textAlign: "center"}}>Einverständniserklärung zur Nutzung von Stimmenaufnahmen und Nutzerinformationen</h3>
