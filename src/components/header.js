@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom"
-import logo from "../files/images/logo.png";
+import logo from "../files/images/logo.svg";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaDiscord } from "react-icons/fa";
 import { useEffect, useState } from "react";
