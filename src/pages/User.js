@@ -31,9 +31,9 @@ const User = () => {
 
     return ( 
         <div>
-            {isPending && <div className="UserPendingload-wraper"><div className="activity"></div></div>}
+            {isPending && <div className="UserPageLoading"><div className="load-wraper"><div className="activity"></div></div></div>}
 
-            {UserData && isPending == false && 
+            {UserData && isPending == false &&
             <div className="UserPage">
             <Removalnotice data={UserData}/>
             <UserMainCard data={UserData}/>
@@ -71,18 +71,23 @@ const UserRankCard = ({data}) => {
     return ( 
         <div className="UserRankCard box">
             
-            <div className="rank">
+            {data.private_page == false && <div className="rank">
                 <h1>Rank: </h1>
                 <h1>{data.currencys.ranks.rank}</h1>
-            </div>
+            </div>}
 
-            <div className="xp">
+            {data.private_page == false && <div className="xp">
                 <h1>XP</h1>
                 <div className="xpprogress">
                 <div className="bar" style={{width: (data.currencys.ranks.xp / (data.currencys.ranks.rank * 5) * 100) + "%"}}></div>
             </div>
                 <h2>{data.currencys.ranks.xp} / {data.currencys.ranks.rank * 5}</h2>
-            </div>
+            </div>}
+
+            {data.private_page && <div className="privatepage">
+                <h1>Rank: </h1>
+                <h3>{data.username} hat das Level verborgen</h3>
+            </div>}
                 
 
         </div>
@@ -94,16 +99,16 @@ const UserGemCard = ({data}) => {
     return ( 
         <div className="UserGemCard box">
                 <h1>Gems:</h1>
-                <div className="flex">
+                {data.private_page == false && <div className="flex">
                     <h2>{data.currencys.gems.amount}</h2>
                     <img src={GemIcon} alt="gems" />
-                </div>
+                </div> }
 
-                {data.currencys.gems.log.length > 0 && <hr />}
+                {data.private_page == false && data.currencys.gems.log.length > 0 && <hr />}
 
-                {data.currencys.gems.log.length > 0 && <h3>Buchungen:</h3>}
+                {data.private_page == false && data.currencys.gems.log.length > 0 && <h3>Buchungen:</h3>}
                 <ul className="purchases">
-                    {data.currencys.gems.log.map((x, index) => (
+                    {data.private_page == false && data.currencys.gems.log.map((x, index) => (
                         <li className="purchase" key={index}>
                             <div className="value">
                                 <h4 className={x.value < 0 ? "negative" : undefined}>{x.value}</h4>
@@ -115,8 +120,10 @@ const UserGemCard = ({data}) => {
                         </li>
                     ))}
                 </ul>
-                
 
+                {data.private_page && <div className="privatepage">
+                <h3>{data.username} hat die Gems und Ausgaben verborgen</h3>
+            </div>}
         </div>
      );
 

@@ -72,6 +72,10 @@
   border-radius: 4px;
 }
 
+.UserPage .UserRankCard .privatepage {
+    text-align: center;
+}
+
 /* gem card */
 .UserPage .UserGemCard h1 {
     text-align: center;
@@ -118,7 +122,7 @@
 
 
 .UserPage .UserGemCard .purchase h4 {
-    /* cuts of things that are to long */
+/* cuts of things that are to long */
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -134,6 +138,9 @@
     text-align: center;
 }
 
+.UserPage .UserGemCard .privatepage {
+    text-align: center;
+}
 /* Warn Card */
 
 .UserPage .UserWarnsCard .nowarns {
@@ -226,7 +233,9 @@
 }
 
 /* Loading Box */
-.UserPendingload-wraper {
-    margin: 10px;
+.UserPageLoading .load-wraper {
     height: 70vh;
+    width: 100%;
+    margin-top: 20px;
+    background-color: var(--background);
 }
