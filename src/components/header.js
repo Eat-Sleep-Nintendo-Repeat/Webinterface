@@ -1,5 +1,6 @@
 import {Link} from "react-router-dom"
-import logo from "../files/images/logo.svg";
+import smalllogo from "../files/images/smalllogo.svg";
+import fulllogo from "../files/images/fulllogo.svg";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaDiscord } from "react-icons/fa";
 import { useEffect, useState } from "react";
@@ -8,8 +9,6 @@ import Boostericon from "../files/images/nitro.png"
 import '../files/css/Header.css';
 
 const HeaderUserButton = ({handeMenuClick, User}) => {
-
-
     return (
         
         <Link onClick={handeMenuClick} to={`/user/${User.id}`}>
@@ -52,8 +51,8 @@ const Header = () => {
         <div className="header">
             <header>
             <div className="logo">
-                <img src={logo} alt="Logo" />
-                <h4>Eat, Sleep, Nintendo, Repeat</h4>
+                <img src={smalllogo} alt="Logo" className="small" />
+                <img src={fulllogo} alt="Logo" className="full" />
             </div>
             
             

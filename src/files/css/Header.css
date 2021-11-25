@@ -11,8 +11,13 @@ header {
     align-items: center;
   }
   
-  header .logo img{
-    width: 50px;
+  header .logo .small{
+    width: 55px;
+    display: none;
+  }
+
+  header .logo .full {
+    height: 62.5px;
   }
   
   header .logo h4 {
@@ -47,9 +52,13 @@ header {
   }
   
   @media screen and (max-width:1300px){
-    header .logo h4 {
+    header .logo .full {
       display: none;
   }
+
+  header .logo .small {
+    display: block;
+}
   }
   
   @media screen and (max-width:768px){
