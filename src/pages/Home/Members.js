@@ -1,7 +1,7 @@
 import {axios, baseUrl} from "../../api"
 import { useEffect, useState } from "react";
 import { store } from 'react-notifications-component';
-import "../../files/css/Membersearch.css"
+import "../../files/css/Membersearch.scss"
 import { Link } from "react-router-dom";
 
 import DefaultUserIcon from "../../files/images/default-pb.jpg"

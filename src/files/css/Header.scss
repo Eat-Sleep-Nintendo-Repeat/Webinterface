@@ -4,51 +4,43 @@ header {
     align-items: center;
     min-height: 8vh;
     background-color: var(--primary);
-  }
-  
-  header .logo{
-    display: flex;
-    align-items: center;
-  }
-  
-  header .logo .small{
-    width: 55px;
-    display: none;
-  }
 
-  header .logo .full {
-    height: 62.5px;
-  }
-  
-  header .logo h4 {
-  margin: 10px;
-  text-transform: uppercase;
-  font-weight: bold;
-  letter-spacing: 3px;
-  font-size: 20px;
-  }
-  
-  header .nav-links {
-    display: flex;
-    justify-content: space-around;
-    width: 60%;
-  }
-  
-  header .nav-links li {
-    list-style: none;
-  }
-  
-  header .nav-links li a {
-    font-size: 16px;
-    text-decoration: none;
-    font-weight: bold;
-    letter-spacing: 2px;
-  }
-  
-  header .burger {
-    display: none;
-    size: 30px;
-    cursor: pointer;
+    .logo{
+      display: flex;
+      align-items: center;
+    
+      .small{
+        width: 55px;
+        display: none;
+      }
+    
+      .full {
+        height: 62.5px;
+      }
+    }
+    
+    .nav-links {
+      display: flex;
+      justify-content: space-around;
+      width: 60%;
+
+      li {
+        list-style: none;
+
+        a {
+          font-size: 16px;
+          text-decoration: none;
+          font-weight: bold;
+          letter-spacing: 2px;
+        }
+      }
+    }
+    
+    .burger {
+      display: none;
+      size: 30px;
+      cursor: pointer;
+    }
   }
   
   @media screen and (max-width:1300px){
@@ -61,7 +53,7 @@ header {
 }
   }
   
-  @media screen and (max-width:768px){
+@media screen and (max-width:768px){
     html, body {
       overflow-x: hidden;
   }
@@ -102,14 +94,13 @@ header {
   
   header .nav-links .headerUserButton {
     display: flex;
+
+    .pb {
+      border-radius: 50%;
+      width: 30px;
+      margin-right: 2px;
+    }
   }
   
-  header .nav-links .headerUserButton .pb {
-    border-radius: 50%;
-    width: 30px;
-    margin-right: 2px;
-  }
+
   
-  header .nav-links .headerUserButton .boosticon {
-    width: 30px;
-  }

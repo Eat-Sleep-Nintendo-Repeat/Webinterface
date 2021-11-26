@@ -1,0 +1,158 @@
+.Members {
+    .Pagetitle {
+        text-align: center;
+    }
+    
+    .searchForm {
+        form {
+            text-align: center;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+
+            #username {
+                grid-column: 1/4;
+                input {
+                    width: 100%;
+                }
+            }
+
+            #discriminator {
+                grid-column: 4/6;
+                input {
+                    width: 100%;
+                }
+            }
+
+            #id {
+                grid-column: 1/5;
+                grid-template-rows: 2;
+            }
+
+            div {
+                display: flex;
+                align-items: center;
+    
+                h3 {
+                    font-size: 25px;
+                }
+            }
+
+            input {
+                margin: 5px;
+                height: 40px;
+                color: black;
+                border-radius: 6px;
+                border: 0;
+                padding: 6px;
+                font-size: 15px;
+            }
+
+        }
+        
+        .Memberlist li {
+            list-style: none;
+        }
+    }
+
+    .Memberlist ul li {
+        list-style: none;
+    }
+    
+    .Membercard{
+        display: flex;
+
+        .pb {
+            border-radius: 50%;
+            background-color: var(--primary);
+            width: 60px;
+            height: 60px;
+        }
+
+        .nametag {
+            display: flex;
+            margin: 4px;
+            text-align: center;
+            align-items: center;
+
+            p {
+                margin: 0px 5px;
+                padding: 0 3px;
+                background-color: var(--primary);
+                border-radius: 3px;
+            }
+
+            img {
+                width: 30px;
+            }
+        }
+    }
+    
+    .Membercard:hover{
+        background-color: var(--primary);
+        
+        .pb {
+            background-color: var(--background);
+        }
+
+        .nametag p {
+            background-color: var(--background);
+        }
+    }
+    
+    
+    .MemberlistNoMatch {
+        text-align: center;
+        justify-content: center;
+        vertical-align: middle;
+        padding-top: 10vh;
+    }
+
+}
+
+/* desktop styles */
+@media screen and (min-width: 1300px){
+    .Members {
+        .Memberlist ul {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 10px;
+
+            .box {
+                margin: 0
+            }
+        }
+
+         .MemberlistPlaceholder ul {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+
+/* Loading Placeholder */
+
+.MemberlistPlaceholder {
+    ul li{
+        list-style: none;
+    }
+
+    .MembercardPlaceholder{
+        display: flex;
+        
+         .pb {
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+        }
+        
+         .nametag {
+            height: 15px;
+            width: 70%;
+            display: flex;
+            margin: 4px;
+            align-self: center;
+        }
+    }
+}
+

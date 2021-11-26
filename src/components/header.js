@@ -6,7 +6,7 @@ import { FaDiscord } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import {axios, baseUrl} from "../api"
 import Boostericon from "../files/images/nitro.png"
-import '../files/css/Header.css';
+import '../files/css/Header.scss';
 
 const HeaderUserButton = ({handeMenuClick, User}) => {
     return (
@@ -15,7 +15,6 @@ const HeaderUserButton = ({handeMenuClick, User}) => {
         <div className="headerUserButton">
         <img className="pb" src={`https://cdn.discordapp.com/avatars/${User.id}/${User.avatar}.png`} alt={`Account Icon from ${User.username}`} />
         <p>{`${User.username}#${User.discriminator}`}</p>
-        {User.serverbooster && <img className="boosticon" src={Boostericon} alt="Server Booster Icon" />}
         </div>
         </Link>
         

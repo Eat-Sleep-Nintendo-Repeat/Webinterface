@@ -11,7 +11,7 @@ import { Redirect } from "react-router"
 
 import ReactNotification from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
-import './files/css/Placeholders.css'
+import './files/css/Placeholders.scss'
 import Ranklist from "./pages/Home/Ranklist"
 
 
