@@ -41,7 +41,21 @@ header {
       size: 30px;
       cursor: pointer;
     }
+
   }
+
+.UptimeBanner {
+  background-color: var(--error);
+
+  p {
+    text-align: center;
+    font-weight: bold;
+
+    a {
+      color: var(--background);
+    }
+  }
+}
   
   @media screen and (max-width:1300px){
     header .logo .full {

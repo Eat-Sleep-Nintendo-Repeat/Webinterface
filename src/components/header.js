@@ -5,7 +5,6 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { FaDiscord } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import {axios, baseUrl} from "../api"
-import Boostericon from "../files/images/nitro.png"
 import '../files/css/Header.scss';
 
 const HeaderUserButton = ({handeMenuClick, User}) => {
@@ -28,6 +27,23 @@ const HeaderLoginButton = () => {
     </div> );
 }
 
+const Uptimechecker = () => {
+    const [UptimeData, SetUptimeData] = useState(null);
+
+    //fetch uptime data
+    useEffect(() => {
+        axios.get(baseUrl + "/uptime").then(res => {
+            SetUptimeData(res.data)
+        }).catch(e => {})
+    }, [])
+
+    return ( <div className="UptimeBanner">
+        {UptimeData && UptimeData.offline.length > 0 && 
+            <p>Einige unsere Systeme sind aktuell nicht erreichbar! Betroffen sind: {UptimeData.offline.map(x => x.name).join(", ")}. <a href="https://stats.uptimerobot.com/NE4p1U0Bxw">Hier clicken für mehr infos</a></p>
+        }
+    </div>)
+}
+
 const Header = () => {
     const [menuExpandet, setMenuExpandet] = useState(false)
 
@@ -48,6 +64,7 @@ const Header = () => {
 
     return ( 
         <div className="header">
+            <Uptimechecker />
             <header>
             <div className="logo">
                 <img src={smalllogo} alt="Logo" className="small" />
