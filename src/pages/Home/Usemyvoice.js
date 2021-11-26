@@ -10,7 +10,7 @@ const Usemyvoice = () => {
 
     //fetch Usemyvoice data after id is fetched
     useEffect(() => {
-        if (userData == null) return;
+        if (userData === null) return;
         axios.get(baseUrl + `/usemyvoice/${userData.id}`).then(res => {
             SetPendingUsemyvoiceData(false)
             SetUsemyvoiceData(res.data)
@@ -144,14 +144,14 @@ const Usemyvoice = () => {
             </div>
 
             {/* Status Pannel */}
-            {UsemyvoiceData && PendingUsemyvoiceData == false && showForm == false && <div className={`box status ${UsemyvoiceData.accepted ? "accepted": "denied"}`}>
+            {UsemyvoiceData && PendingUsemyvoiceData === false && showForm === false && <div className={`box status ${UsemyvoiceData.accepted ? "accepted": "denied"}`}>
                 <div className="statushead">
                     <div className="circle" />
                     {UsemyvoiceData.state === null && <h1>noch nicht akzeptiert</h1>}
                     {UsemyvoiceData.state === "removed_by_user" && <h1>von dir zurückgezogen</h1>}
                     {UsemyvoiceData.state === "removed_by_admin" && <h1>von uns zurückgezogen</h1>}
-                    {UsemyvoiceData.accepted && new window.Date(UsemyvoiceData.date).getFullYear() != new window.Date().getFullYear() && <h1>abgelaufen</h1>}
-                    {UsemyvoiceData.state === "accepted" && new window.Date(UsemyvoiceData.date).getFullYear() == new window.Date().getFullYear() && <h1>akzeptiert</h1>}
+                    {UsemyvoiceData.accepted && new window.Date(UsemyvoiceData.date).getFullYear() !== new window.Date().getFullYear() && <h1>abgelaufen</h1>}
+                    {UsemyvoiceData.state === "accepted" && new window.Date(UsemyvoiceData.date).getFullYear() === new window.Date().getFullYear() && <h1>akzeptiert</h1>}
 
                 </div>
 
@@ -159,15 +159,15 @@ const Usemyvoice = () => {
                 {UsemyvoiceData.state === null && <p>Du hast die Einverständniserklärung zur Nutzung von Stimmenaufnahmen noch nicht akzeptiert. Daher kannst du nicht in Sprachkanäle joinen, in denen eine Aufnahme oder ein Stream stattfindet.</p>}
                 {UsemyvoiceData.state === "removed_by_user" && <p>Du hast die Einverständniserklärung zur Nutzung von Stimmenaufnahmen zurück gezogen. Daher kannst du nicht mehr in Sprachkanäle joinen, in denen eine Aufnahme oder ein Stream stattfindet.</p>}
                 {UsemyvoiceData.state === "removed_by_admin" && <p>Wir haben deine Einverständniserklärung zur Nutzung von Stimmenaufnahmen als ungültig eingestuft. Dies kann daran liegen, das du ungültig unterschirben hast, oder wir aufgrund deines Verhalten, keine Formate mit dir drehen möchten. Daher kannst du nicht in Sprachkanäle joinen, in denen eine Aufnahme oder ein Stream stattfindet. Falls du an dieser Entscheidung etwas auszusetzten hast, dann melde dich bitte bei einem Mitglied des Server Teams</p>}
-                {UsemyvoiceData.accepted && new window.Date(UsemyvoiceData.date).getFullYear() != new window.Date().getFullYear() && <p>Deine Einverständniserklärung zur Nutzung von Stimmenaufnahmen ist leider schon abgelaufen. Daher kannst du nicht in Sprachkanäle joinen, in denen eine Aufnahme oder ein Stream stattfindet. Dir steht es jedoch frei sie jederzeit zu erneuern.</p>}
-                {UsemyvoiceData.state === "accepted" && new window.Date(UsemyvoiceData.date).getFullYear() == new window.Date().getFullYear() && <p>Du hast die Einverständniserklärung zur Nutzung von Stimmenaufnahmen und Nutzerinformationen am {new window.Date(UsemyvoiceData.date).toLocaleDateString("DE-de")} akzeptiert. Du bist nun fähig in Sprachkanäle zu joinen, in denen ein Stream oder eine Aufnahme stattfindet.</p>}
+                {UsemyvoiceData.accepted && new window.Date(UsemyvoiceData.date).getFullYear() !== new window.Date().getFullYear() && <p>Deine Einverständniserklärung zur Nutzung von Stimmenaufnahmen ist leider schon abgelaufen. Daher kannst du nicht in Sprachkanäle joinen, in denen eine Aufnahme oder ein Stream stattfindet. Dir steht es jedoch frei sie jederzeit zu erneuern.</p>}
+                {UsemyvoiceData.state === "accepted" && new window.Date(UsemyvoiceData.date).getFullYear() === new window.Date().getFullYear() && <p>Du hast die Einverständniserklärung zur Nutzung von Stimmenaufnahmen und Nutzerinformationen am {new window.Date(UsemyvoiceData.date).toLocaleDateString("DE-de")} akzeptiert. Du bist nun fähig in Sprachkanäle zu joinen, in denen ein Stream oder eine Aufnahme stattfindet.</p>}
 
                 {/* buttonto new accaptence form */}
                 <div className="toformbutton">
                     {UsemyvoiceData.state === null && <button onClick={handleLoadForm}>jetzt akzeptieren!</button>}
                     {UsemyvoiceData.state === "removed_by_user" && <button onClick={handleLoadForm}>erneut akzeptieren!</button>}
                     {UsemyvoiceData.state === "removed_by_admin" && <button disabled >Melde dich beim Server Team</button>}
-                    {UsemyvoiceData.accepted && new window.Date(UsemyvoiceData.date).getFullYear() != new window.Date().getFullYear() && <button onClick={handleLoadForm}>jetzt verlängern!</button>}
+                    {UsemyvoiceData.accepted && new window.Date(UsemyvoiceData.date).getFullYear() !== new window.Date().getFullYear() && <button onClick={handleLoadForm}>jetzt verlängern!</button>}
                 </div>
 
                 <div className="toremovebutton">
@@ -177,7 +177,7 @@ const Usemyvoice = () => {
             </div>}
 
             {/* Placeholders */}
-            {PendingUsemyvoiceData == true && <div style={{height: "130px", width: "98%"}} className="box load-wraper"><div className="activity"></div></div>}
+            {PendingUsemyvoiceData === true && <div style={{height: "130px", width: "98%"}} className="box load-wraper"><div className="activity"></div></div>}
 
             {UsemyvoiceData && showForm && <div className="box form">
                     <h3 style={{fontWeight: "bold", textDecoration: "underline", textAlign: "center"}}>Einverständniserklärung zur Nutzung von Stimmenaufnahmen und Nutzerinformationen</h3>

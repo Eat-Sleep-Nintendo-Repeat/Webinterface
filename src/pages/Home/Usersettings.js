@@ -246,18 +246,15 @@ const APITokensPanel = () => {
     const [Name, SetName] = useState(null)
     const [newKey, SetNewKey] = useState(null)
     const [isNewKeyPendig, SetIsNewKeyPendig] = useState(null)
-    const [isNewKeyError, SetIsNewKeyError] = useState(null)
     function HandleCreateClick(e) {
         e.preventDefault(); //prevents button to reload page
 
         SetIsNewKeyPendig(true)
         axios.post(baseUrl + "/tokens", {name: Name}).then(res => {
-            SetIsNewKeyError(false)
             SetIsNewKeyPendig(false)
             SetNewKey(res.data)
             SetName(null)
         }).catch(e => {
-            SetIsNewKeyError(false)
             var content = e.message
             if (e.response && e.response.data.message) {
                 content = <p>{e.response.data.message}</p>

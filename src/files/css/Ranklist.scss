@@ -1,0 +1,164 @@
+.Ranklist {
+    background-color: unset;
+     
+    .top3 {
+        .place1 {
+            background-color: rgb(153, 130, 0);
+        }
+
+        .place2 {
+            background-color: rgb(121, 121, 121);
+        }
+
+        .place3 {
+            background-color: rgb(165, 97, 42);
+        }
+     }   
+
+    .topbox, .notsotopbox {
+        display: grid;
+        grid-template-columns: repeat(5, "1fr");
+        margin: 6px;
+        align-items: center;
+        border-radius: 6px;
+
+        .place {
+            margin: 0 7px;
+            grid-column: 1/2;
+        }
+
+        .userdata a {
+            display: flex;
+            align-items: center;
+            grid-column: 2/5;
+
+            .pb {
+                border-radius: 50%;
+                background-color: var(--primary);
+                width: 30px;
+                height: 30px;
+            }
+
+            .nametag {
+                display: flex;
+                margin: 4px;
+                text-align: center;
+                align-items: center;
+
+                p {
+                    margin: 0px 5px;
+                    padding: 0 3px;
+                    background-color: var(--primary);
+                    border-radius: 3px;
+                }
+
+                img {
+                    width: 30px;
+                }
+            }
+        }
+
+        .ranktitle {
+            display: none;
+        }
+
+        .rank {
+            grid-column: 5/6;
+            text-align: right;
+            margin: 0 5px;
+        }
+    }
+
+    @media screen and (min-width: 1300px){
+
+        .top3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+
+            .topbox {
+                margin: 0;
+                border-radius: 6px 6px 0 0;
+                display: block;
+                text-align: center;
+                
+                .place {
+                    font-size: 40px;
+                }
+
+                .userdata a {
+                    display: unset;
+        
+                    .pb {
+                        width: 90px;
+                        height: 90px;
+                    }
+
+                    .nametag {
+                        justify-content: center;
+                        font-size: 20px;
+                    }
+                }
+
+                .ranktitle {
+                    font-size: 40px;
+                    display: block;
+                }
+
+                .rank {
+                    display: none;
+                }
+
+            }
+
+            .place1 {
+                grid-column: 2/3;
+                grid-row: 1;
+            }
+
+            .place2 {
+                grid-column: 1/2;
+                grid-row: 1;
+                margin-top: 60px;
+            }
+
+            .place3 {
+                grid-column: 3/4;
+                grid-row: 1;
+                margin-top: 120px;
+            }
+         }
+
+         .top {
+             margin-top: 4px;
+             display: grid;
+             grid-template-columns: 1fr 1fr;
+             gap: 4px;
+
+             .notsotopbox {
+                 background-color: #1c1f22;
+                 margin: 0;
+
+                 grid-template-columns: repeat(3, 1fr);
+
+                 .userdata {
+                     grid-column: 2/3;
+                 }
+
+                 .rank {
+                     display: none;
+                 }
+
+                 .ranktitle {
+                     display: block;
+                     text-align: right;
+                     margin-right: 4px;
+                 }
+             }
+         }
+
+         
+
+    }
+
+}
