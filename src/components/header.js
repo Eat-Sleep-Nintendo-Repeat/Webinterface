@@ -39,7 +39,7 @@ const Uptimechecker = () => {
 
     return ( <div className="UptimeBanner">
         {UptimeData && UptimeData.offline.length > 0 && 
-            <p>Einige unsere Systeme sind aktuell nicht erreichbar! Betroffen sind: {UptimeData.offline.map(x => x.name).join(", ")}. <a href="https://stats.uptimerobot.com/NE4p1U0Bxw">Hier clicken für mehr infos</a></p>
+            <p>Einige unsere Systeme sind aktuell nicht erreichbar! Betroffen sind: {UptimeData.offline.map(x => x.name).join(", ")}. <a href="https://stats.uptimerobot.com/NE4p1U0Bxw">Hier klicken für mehr Infos</a></p>
         }
     </div>)
 }
