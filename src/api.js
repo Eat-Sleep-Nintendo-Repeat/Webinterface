@@ -1,59 +1,55 @@
 import axios from "axios";
 import Cookies from 'js-cookie';
 
-const baseUrl = "https://eat-sleep-nintendo-repeat.eu/api"
+var baseUrl = "https://eat-sleep-nintendo-repeat.eu/api"
 
-//request interceptor to add the auth token header to requests
-axios.interceptors.request.use(
-    (config) => {
-      const accessToken = localStorage.getItem("accessToken");
-      if (accessToken) {
-        config.headers["Authentication"] = `Access ${accessToken}`;
-      }
-      return config;
-    },
-    (error) => {
-      Promise.reject(error);
+const instance = axios.create({
+  baseURL: baseUrl
+})
+
+//add auth header to all request
+instance.interceptors.request.use(
+  (config) => {
+    var access_token = localStorage.getItem("accessToken");
+    if (access_token) {
+      config.headers["Authentication"] = `Access ${access_token}`;
     }
-  );
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
-//response interceptor to refresh token on receiving token expired error
-axios.interceptors.response.use(
-    (response) => {
-      return response;
-    },
-    function (error) {
-      const originalRequest = error.config;
-      let refreshToken = Cookies.get("refresh_token")
-  if (
-        refreshToken &&
-        error.response.status === 401 &&
-        !originalRequest.retry
-      ) {
-        originalRequest.retry = true;
-        return axios
-          .get(`${baseUrl}/auth/accesstoken`, {withCredentials: true})
-          .then((res) => {
-            if (res.status === 200) {
-              localStorage.setItem("accessToken", res.data.token);
-              console.log("Access token refreshed!");
-              return axios(originalRequest);
-            }
-          }).catch(e => {
-            setTimeout(() => {
-              window.location = `${baseUrl}/auth/discord?redirect=${window.location.href}`
-            }, 500);
-          });
+instance.interceptors.response.use(
+  (res) => {
+    return res;
+  },
+  async (err) => {
+    const originalConfig = err.config;
+
+    if (err.response.status === 401 && !originalConfig._retry) {
+      originalConfig._retry = true;
+
+
+      try {
+        const rs = await axios.get(`${baseUrl}/auth/accesstoken`, {withCredentials: true}).catch(e => {
+          //redirect to loginpage if refresh_token is not valid
+          if (e.response && e.response.status === 401) {
+            window.location = baseUrl + `/auth/discord?redirect=${window.location.href}`
+          }
+        });
+
+        const {token} = rs.data;
+        localStorage.setItem("accessToken", token);
+
+        return instance(originalConfig);
+      } catch (_error) {
+        return Promise.reject(_error)
       }
-      else if (
-        !refreshToken &&
-        error.response.status === 401 &&
-        !originalRequest.retry
-      ) {
-          window.location = `${baseUrl}/auth/discord?redirect=${window.location.href}`
-      }
-      return Promise.reject(error);
     }
-  );
+    return Promise(err);
+  }
+);
 
-export { axios, baseUrl }
+export { instance as axios, baseUrl }
