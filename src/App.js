@@ -3,7 +3,6 @@ import Footer from "./components/footer"
 import Userpage from "./pages/User"
 import Usersettings from "./pages/Home/Usersettings"
 import Members from "./pages/Home/Members"
-import Shop from "./pages/Shop/Shop"
 import TWartung from "./pages/Turnements/Wartung"
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import {Link} from "react-router-dom"
@@ -36,14 +35,7 @@ function App() {
               <Route exact path="/home/usemyvoice"><Usemyvoice /></Route>
             </div>} links={[<Link to="/home/members">Members</Link>, <Link to="/home/ranklist">Rangliste</Link>, <Link to="/home/usemyvoice">Use my Voice</Link>, <Link to="/home/usersettings">User Einstellungen</Link>]}/>
       </Route>
-      <Route exact path="/shop">
-          <Submenu component={
-            <div className="content">
-              <Shop />
-            </div>} links={[<Link to="/shop">Shop</Link>, <Link to="/shop/bought">Meine Käufe</Link>]}/>
-      </Route>
-      <Route exact path="/turnements"><TWartung /></Route>
-
+      
       <Route exact path="/user/:id"> <Userpage/> </Route>
       <Route exact path="/"> <Redirect exact from="/" to="home/members" /></Route>
       </Switch>
