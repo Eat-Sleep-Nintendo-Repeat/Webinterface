@@ -110,7 +110,7 @@ const Membercard = ({userdata}) => {
     return (
         <Link to={`/user/${userdata.id}`} >
         <div className="Membercard box">
-            <img className="pb" onError={(img) => {img.target.src = DefaultUserIcon}} loading="lazy" src={`https://cdn.discordapp.com/avatars/${userdata.id}/${userdata.avatar}.png`} alt={`Avatar of ${userdata.username}`} />
+            <img className="pb" onError={(img) => {img.target.src = DefaultUserIcon}} loading="lazy" src={userdata.avatar} alt={`Avatar of ${userdata.username}`} />
             <div className="nametag">
                 <h3>{`${userdata.username}#${userdata.discriminator}`}</h3>
                 <p>{userdata.typeword}</p>

@@ -1,10 +1,10 @@
 const Submenu = ({component ,links}) => {
 
-    links = links.sort((a, b) => {
-        if (a.props.children < b.props.children) return -1;
-        if (a.props.children > b.props.children) return 1;
-        return 0;
-    })
+    // links = links.sort((a, b) => {
+    //     if (a.props.children < b.props.children) return -1;
+    //     if (a.props.children > b.props.children) return 1;
+    //     return 0;
+    // })
 
     return ( 
         <div className="content-split">

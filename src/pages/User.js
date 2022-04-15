@@ -52,7 +52,7 @@ const UserMainCard = ({data}) => {
     return ( 
         <div className="UserMainCard box">
             <div className="pb">
-                <img onError={UserImageDidtLoad} src={`https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.png?size=2048`} alt={`profile by ${data.username}#${data.discriminator}`} />
+                <img onError={UserImageDidtLoad} src={data.avatar} alt={`profile by ${data.username}#${data.discriminator}`} />
             </div>
             <div className="name">
                 <h1>{data.username}#{data.discriminator}</h1>

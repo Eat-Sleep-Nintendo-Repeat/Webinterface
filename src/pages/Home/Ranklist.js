@@ -46,7 +46,7 @@ const Ranklist = () => {
                     <h1 className="place">{"#" + (index + 1)}</h1>
                     <div className="userdata">
                         <Link to={`/user/${x.id}`}>
-                            <img className="pb" onError={(img) => {img.target.src = DefaultUserIcon}} loading="lazy" src={`https://cdn.discordapp.com/avatars/${x.id}/${x.avatar}.png`} alt={`Avatar of ${x.username}`} />
+                            <img className="pb" onError={(img) => {img.target.src = DefaultUserIcon}} loading="lazy" src={x.avatar} alt={`Avatar of ${x.username}`} />
                             <div className="nametag">
                                 <h3>{`${x.username}#${x.discriminator}`}</h3>
                                 <p>{x.typeword}</p>
@@ -67,7 +67,7 @@ const Ranklist = () => {
                     <h1 className="place">{"#" + (index + 4)}</h1>
                     <div className="userdata">
                         <Link to={`/user/${x.id}`}>
-                            <img className="pb" onError={(img) => {img.target.src = DefaultUserIcon}} loading="lazy" src={`https://cdn.discordapp.com/avatars/${x.id}/${x.avatar}.png`} alt={`Avatar of ${x.username}`} />
+                            <img className="pb" onError={(img) => {img.target.src = DefaultUserIcon}} loading="lazy" src={x.avatar} alt={`Avatar of ${x.username}`} />
                             <div className="nametag">
                                 <h3>{`${x.username}#${x.discriminator}`}</h3>
                                 <p>{x.typeword}</p>
