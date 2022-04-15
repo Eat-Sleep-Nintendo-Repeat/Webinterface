@@ -2,7 +2,6 @@ import "../../files/css/Usersettings.css"
 import {axios, baseUrl} from "../../api"
 import { useEffect } from "react";
 import { useState } from "react";
-import { AiFillWarning } from "react-icons/ai";
 import { store } from 'react-notifications-component';
 
 const Usersettings = () => {
@@ -343,7 +342,7 @@ const APITokensPanel = () => {
             {newKey && <div className="newkey">
                 <hr />
                 <div className="warnbox box">
-                    <h3>Warnung <AiFillWarning /></h3>
+                    <h3>Warnung</h3>
                     <p>Dieser API Key wird nur ein einziges mal angezeigt. Nachdem du diese Seite verlässt kannst du ihn nicht erneut anschauen. Außerdem wichtig: Zeige deinen API Key niemals jemand anderen. Er ist geheim und mit ihm kann man viel Schaden auf deine Kosten ausrichten.</p>
                 </div>
 
