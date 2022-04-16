@@ -110,11 +110,16 @@ const Membercard = ({userdata}) => {
 
     //if avatar is null change to Deafult User Icon
     userdata.avatar = userdata.avatar ? userdata.avatar : DefaultUserIcon
+
+    var [isAvatarLoading, SetIsAvatarLoading] = useState(true)
     
     return (
         <Link to={`/user/${userdata.id}`} >
         <div className="Membercard box">
-            <img className="pb" onError={(img) => {img.target.src = DefaultUserIcon}} loading="lazy" src={userdata.avatar} alt={`Avatar of ${userdata.username}`} />
+            <div className="pb load-wraper" style={{display: isAvatarLoading ? "block" : "none"}}>
+                <div className="activity" style={{visibility: isAvatarLoading ? "block" : "none"}}></div>
+            </div>
+            <img className="pb" style={{visibility: isAvatarLoading ? "hidden" : "visible"}} onLoad={() => {SetIsAvatarLoading(false)}} onError={(img) => {img.target.src = DefaultUserIcon}} loading="lazy" src={userdata.avatar} alt={`Avatar of ${userdata.username}`} />
             <div className="nametag">
                 <h3>{`${userdata.username}#${userdata.discriminator}`}</h3>
                 <p>{userdata.typeword}</p>
