@@ -1,8 +1,10 @@
 import {Link} from "react-router-dom"
 import smalllogo from "../files/images/smalllogo.svg";
 import fulllogo from "../files/images/fulllogo.svg";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { FaDiscord } from "react-icons/fa";
+// import { GiHamburgerMenu } from "react-icons/gi";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars as GiHamburgerMenu} from '@fortawesome/free-solid-svg-icons'
+import { faDiscord as FaDiscord } from '@fortawesome/free-brands-svg-icons'
 import { useEffect, useState } from "react";
 import {axios, baseUrl} from "../api"
 import '../files/css/Header.scss';
@@ -23,7 +25,7 @@ const HeaderUserButton = ({handeMenuClick, User}) => {
 
 const HeaderLoginButton = () => {
     return ( <div className="headerLoginButton">
-        <a href={`${baseUrl}/auth/discord`}><FaDiscord size="15px" className="discordicon"/> Login</a>
+        <a href={`${baseUrl}/auth/discord`}><FontAwesomeIcon icon={FaDiscord} size={"2x"}/> Login</a>
     </div> );
 }
 
@@ -77,7 +79,7 @@ const Header = () => {
                 {User && <li><HeaderUserButton handeMenuClick={handeMenuClick} User={User}/></li>}
                 {!User && <li><HeaderLoginButton /></li>}
             </ul>
-                <GiHamburgerMenu onClick={handeMenuClick} size="30px" className="burger"/>
+                <FontAwesomeIcon icon={GiHamburgerMenu} onClick={handeMenuClick} size="3x" className="burger"/>
 
             </header>
         </div>
