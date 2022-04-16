@@ -45,6 +45,9 @@ const User = () => {
 
 const UserMainCard = ({data}) => {
 
+    //if avatar is null change to Deafult User Icon
+    data.avatar = data.avatar ? data.avatar : DefaultUserIcon
+
     function UserImageDidtLoad(img) {
         img.target.src = DefaultUserIcon
     }

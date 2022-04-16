@@ -65,22 +65,32 @@ const Ranklist = () => {
             {RanklistData.slice(3, RanklistData.length).map((x, index) => (
                 <div className={"notsotopbox place" + (index + 4)}>
                     <h1 className="place">{"#" + (index + 4)}</h1>
-                    <div className="userdata">
-                        <Link to={`/user/${x.id}`}>
-                            <img className="pb" onError={(img) => {img.target.src = DefaultUserIcon}} loading="lazy" src={x.avatar} alt={`Avatar of ${x.username}`} />
-                            <div className="nametag">
-                                <h3>{`${x.username}#${x.discriminator}`}</h3>
-                                <p>{x.typeword}</p>
-                                {x.serverbooster && <img src={Boostericon} alt="Serverbooster" />}
-                            </div>
-                        </Link>
-                    </div>
+                    <RankUserCard x={x} />
                     <h2 className="ranktitle">Rank: {x.rank}</h2>
                     <h2 className="rank">{x.rank}</h2>
                 </div>
             ))}
         </div>}
     </div>)
+}
+
+const RankUserCard = ({x}) => {
+
+    //if avatar is null change to Deafult User Icon
+    x.avatar = x.avatar ? x.avatar : DefaultUserIcon
+
+    return ( <>
+        <div className="userdata">
+            <Link to={`/user/${x.id}`}>
+                <img className="pb" onError={(img) => {img.target.src = DefaultUserIcon}} loading="lazy" src={x.avatar} alt={`Avatar of ${x.username}`} />
+                <div className="nametag">
+                    <h3>{`${x.username}#${x.discriminator}`}</h3>
+                    <p>{x.typeword}</p>
+                    {x.serverbooster && <img src={Boostericon} alt="Serverbooster" />}
+                </div>
+            </Link>
+        </div>
+    </> );
 }
 
 export default Ranklist;

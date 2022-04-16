@@ -107,6 +107,10 @@ const Members = () => {
 }
 
 const Membercard = ({userdata}) => {
+
+    //if avatar is null change to Deafult User Icon
+    userdata.avatar = userdata.avatar ? userdata.avatar : DefaultUserIcon
+    
     return (
         <Link to={`/user/${userdata.id}`} >
         <div className="Membercard box">
